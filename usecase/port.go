@@ -6,5 +6,5 @@ import (
 )
 
 type UsecaseInput interface {
-	Sum(ctx context.Context, wallet, deposit model.Wallet) (model.Wallet, error)
+	Sum(ctx context.Context, wallet, deposit *model.Wallet) (model.Wallet, error)
 }

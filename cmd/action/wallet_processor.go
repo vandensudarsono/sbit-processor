@@ -25,7 +25,7 @@ func RunWalletProcessor() {
 	//prepare topic first
 	wallet.PrepareTopics()
 
-	wallet.Run(ctx, walletHanlder.DepositRequest)
+	grp.Go(wallet.Run(ctx, walletHanlder.DepositRequest))
 
 	logging.WithFields(logging.Fields{"component": "procesor", "action": "wallet processor"}).
 		Infof("Running wallet processor")

@@ -115,6 +115,8 @@ var (
 
 func PrepareTopics() {
 	stream := viper.GetString("processor.wallet.topic")
+	group = goka.Group(viper.GetString("processor.wallet.group"))
+	Table = goka.GroupTable(group)
 
 	if stream == "" {
 		logging.WithFields(logging.Fields{"component": "prepare topic", "action": "create wallet topic"}).
